@@ -7,23 +7,20 @@ const UserSchema = mongoose.Schema({
         unique: true,
         required: true,
         trim: true,
-        min: 10
+        min: 5
     },
     nombre: {
         type: String,
         required: true,
         trim: true,
-        minlength: 20
+        minlength: 10
     },
     contrasena: {
         type: String,
         required: true,
         trim: true,
-        minlength: 20
-    },
-    expiration: Date
-}, {
-    timestamps: true       
+        minlength: 5
+    }, 
 });
 
 module.exports = mongoose.model('User', UserSchema);
