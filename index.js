@@ -37,8 +37,11 @@ app.get('/', (req, res) => {
     });
 });
 
+require('./app/routes/user.routes.js')(app);
+
 // Start the server with selected configuration [5]
 ////////////////////////////////////////////////////////////////////////
+
 // Connect to the database
 mongoose.connect(dbConfig.url, dbConfig.options)
 .then(() => {
