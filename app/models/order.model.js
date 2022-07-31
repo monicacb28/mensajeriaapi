@@ -12,7 +12,6 @@ const OrderSchema = mongoose.Schema({
     idusuario: {
         type: Number,
         index: true,
-        unique: true,
         required: true,
         trim: true,
         min: 5
