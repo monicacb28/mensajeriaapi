@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const SolicitudSchema = mongoose.Schema({
+const OrderSchema = mongoose.Schema({
     idsolicitud : {
         type: String,
         index: true,
@@ -75,4 +75,4 @@ const SolicitudSchema = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Solicitud', SolicitudSchema);
+module.exports = mongoose.model('Order', OrderSchema);
