@@ -88,3 +88,25 @@ exports.update = (req, res) => {
         });
     });
 };
+
+// Delete a Order by its id
+exports.delete = (req, res) => {
+    Order.findByIdAndRemove(req.params.id)
+    .then(order => {
+        if(!order) {
+            return res.status(404).send({
+                message: "Order not found with id:" + req.params.id
+            });
+        }
+        res.status(200).send({message: "Order deleted successfully!"});
+    }).catch(err => {
+        if(err.kind === 'ObjectId' || err.name === 'NotFound') {
+            return res.status(404).send({
+                message: "Order not found with id:" + req.params.id
+        });
+    }
+        return res.status(500).send({
+            message: "Something wrong ocurred while deleting the record with id:" + req.params.id
+        });
+    });
+};
