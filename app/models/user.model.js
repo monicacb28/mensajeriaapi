@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 
 const UserSchema = mongoose.Schema({
     idusuario: {
-        type: number,
+        type: Number,
         index: true,
         unique: true,
         required: true,
         trim: true,
-        minlength: 10
+        min: 10
     },
     nombre: {
         type: String,
@@ -20,8 +20,10 @@ const UserSchema = mongoose.Schema({
         required: true,
         trim: true,
         minlength: 20
-    }    
-}
-);
+    },
+    expiration: Date
+}, {
+    timestamps: true       
+});
 
 module.exports = mongoose.model('User', UserSchema);
