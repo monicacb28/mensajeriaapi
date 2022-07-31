@@ -6,4 +6,7 @@ module.exports = (app) => {
 
     // List all orders
     app.get('/orders', orders.findAll);
+
+    // Update a order by id
+    app.put('/orders/:id', orders.update);
 }
