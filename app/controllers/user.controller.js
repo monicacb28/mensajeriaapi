@@ -29,7 +29,7 @@ exports.create = (req, res) => {
     });
 };
 
-// Retrieve and list all Products
+// Retrieve and list all users
 exports.findAll = (req, res) => {
     User.find()
     .then(users => {
