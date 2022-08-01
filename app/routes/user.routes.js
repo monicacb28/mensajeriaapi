@@ -6,4 +6,5 @@ module.exports = (app) => {
 
     // List all user
     app.get('/users', users.findAll);
+
 }

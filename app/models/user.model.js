@@ -7,19 +7,21 @@ const UserSchema = mongoose.Schema({
         unique: true,
         required: true,
         trim: true,
-        min: 5
+        minlength: 8
     },
+    
     nombre: {
         type: String,
         required: true,
         trim: true,
-        minlength: 10
+        minlength: 6
     },
+    
     contrasena: {
         type: String,
         required: true,
         trim: true,
-        minlength: 5
+        minlength: 4
     }, 
 });
 
