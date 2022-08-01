@@ -1,24 +1,24 @@
-const User = require('../models/user.model.js');
+const Valoration = require('../models/valoration.model.js');
 
-// Create and save a new user
+// Create and save a new Valoration
 exports.create = (req, res) => {
     // Validate if the request's body is empty
     // (does not include required data)
     if(Object.keys(req.body).length === 0) {
         return res.status(400).send({
-            message: "User data can not be empty"
+            message: "Valoration data can not be empty"
         });
     }
 
-    // Create a new user with request's data
-    const user = new User({
-        idusuario: req.body.idusuario,
-        nombre: req.body.nombre,
-        contrasena: req.body.contrasena
+    // Create a new Valoration with request's data
+    const valoration = new Valoration({
+        order_id: req.body.order_id,
+        stars_number: req.body.stars_number,
+        observation: req.body.observation
     });
 
-    // Save the user in the database
-    user.save()
+    // Save the Valoration in the database
+    valoration.save()
     .then(data => {
         res.status(200).send(data);
     }).catch(err => {
@@ -28,11 +28,11 @@ exports.create = (req, res) => {
     });
 };
 
-// Retrieve and list all users
+// Retrieve and list all Valorations
 exports.findAll = (req, res) => {
-    User.find()
-    .then(users => {
-        res.status(200).send(users);
+    Valoration.find()
+    .then(Valorations => {
+        res.status(200).send(Valorations);
     }).catch(err => {
         res.status(500).send({
             message: err.message || "Something wrong occurred while retrieving the records."

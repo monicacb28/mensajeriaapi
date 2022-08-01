@@ -39,6 +39,7 @@ app.get('/', (req, res) => {
 
 require('./app/routes/user.routes.js')(app);
 require('./app/routes/order.routes.js')(app);
+require('./app/routes/valoration.routes.js')(app);
 
 // Start the server with selected configuration [5]
 ////////////////////////////////////////////////////////////////////////
