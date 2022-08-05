@@ -38,7 +38,11 @@ exports.create = (req, res) => {
 
 // Retrieve and list all orders
 exports.findAll = (req, res) => {
-    Order.find()
+    orderby=req.query.orderBy;
+    filtro=req.query.filter;
+    console.log(filtro);
+    //Order.find().sort(orderby)
+    Order.find({estado: filtro}).sort(filtro).select({'_id':1,'estado':1})
     .then(orders => {
         res.status(200).send(orders);
     }).catch(err => {
